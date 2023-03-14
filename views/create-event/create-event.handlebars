@@ -1,0 +1,147 @@
+<main>
+
+	<!-- Begin page content -->
+<div id="navbar">   
+
+
+
+
+   <div id="navbar-right">
+ <a href="/logout"> Logout </a> 
+  </div>  
+
+      <div id="navbar-right"> 
+
+   <a href="/bookedevents"> Booked Events </a> </div> &nbsp; 
+
+<div id="navbar-right"> 
+   <a  href="/myevents"> My Events </a>  </div> &nbsp; 
+
+ 
+
+<div id="navbar-right"> 
+   <a href="/userhomepage"> Home </a>  </div> &nbsp; 
+
+
+
+
+  
+  </form> 
+
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/>
+
+
+	<div class="center1">
+		<h1>Create a New Event</h1>
+		<br><br><br> 
+
+	<div class="create-event-div">
+       <form action="/create-event" method="POST" id="create-event"> 
+	   <br/> <br/><br/>
+			<label for="title"> Title
+			</label> <br/>
+			<input style="width: 60%; border-radius: 6px; height: 10px" type="text" name="title" id="title" placeholder="Event name" required>
+			<br>
+			<br>
+
+			<label for="category">Category <br><br>
+
+				<select class="ghost-round3" name="category" id="category" onfocus="this.select()" >
+					<option>Select a
+						Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</option>
+					<option value="Party">Party</option>
+					<option value="Get-Together">Get-Together</option>
+					<option value="Conference">Conference</option>
+					<option value="workshop">workshop</option>
+					<option value="Expo">Expo</option>
+					<option value="Networking session">Networking session</option>
+				</select>
+			</label>
+			<br>
+			<br>
+
+
+     
+			<label for="timestart">Start Time</label> <br/>
+
+			<input type="datetime-local" style="width: 60%; border-radius: 6px; height: 40px" name="timestart" id="timestart" required> 
+
+		   <br/> <br/>
+     
+			<label for="endtime">End Time</label><br/>
+			<input type="datetime-local" style="width: 60%; border-radius: 6px; height: 40px " name="endtime" id="endtime" required>
+            
+			
+			<br>
+			<br>
+
+
+			<label for="address">Address </label><br/>
+			<input type="text" style="width: 60%; border-radius: 6px; height: 30px" name="address" id="address" placeholder="          Address"
+				required>
+			<br>
+			<br>
+
+
+
+			<label for="city">City
+				</label> <br/>
+			<input type="text"  style="width: 60%; border-radius: 6px; height: 30px" name="city" id="city" placeholder="          state" required>
+			<br>
+			<br>
+
+
+
+			<label
+				for="state">State</label> <br/>
+			<input type="text"  style="width: 60%; border-radius: 6px; height: 30px" name="state" id="state" placeholder="          state" required>
+			<br>
+
+
+			<label for="ticketcapacity">Ticket Capacity</label><br/>
+			<input type="number"   style="width: 60%; border-radius: 6px; height: 40px" class="ghost-round2" name="ticketcapacity" id="ticketcapacity"
+				placeholder="      Number of seats" required>
+			<br>
+			<br>
+
+
+
+
+			<label
+				for="price">Price</label> <br/>
+			<input type="number" class="ghost-round2" style="width: 60%; border-radius: 6px; height: 40px" name="price" id="price">
+
+			<br>
+			<br>
+			<br>
+
+
+
+			<label for="description">Description</label> <br/>
+			<input type="text"  name="description" id="description" placeholder="Description" style="width: 60%; border-radius: 6px; height: 40px" name="price"
+				required>
+			<br>
+			<br>
+
+
+
+
+
+			<button type="submit" class="submit-event-button"   value="create-event"> create event</button> <br/> <br/>
+		</form> 
+		</div> <br/><br/>
+	</div>
+
+	<div id="error" hidden>
+	</div>
+
+	{{#if error}}
+	<p class="center1"> {{ error }}</p>
+	{{/if}}
+
+</main>
+
+<script src="/public/js/create.js"></script>

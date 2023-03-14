@@ -1,0 +1,196 @@
+<main>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <br /><br /><br /> 
+
+  <div id="navbar">   
+
+
+
+
+   <div id="navbar-right">
+ <a href="/logout"> Logout </a> 
+  </div>  
+      
+      <div id="navbar-right"> 
+
+   <a href="/bookedevents"> Booked Events </a> </div> &nbsp; 
+
+<div id="navbar-right"> 
+   <a  href="/myevents"> My Events </a>  </div> &nbsp; 
+
+ 
+
+<div id="navbar-right"> 
+   <a href="/create-event"> Create Event </a>  </div> &nbsp; 
+
+<div> 
+  <form autocomplete="off" method="Post" id="searchForm">
+<div id="navbar-left"> 
+    <input
+        type="text"
+        class="ghost-round22"
+        placeholder=" Search Events"
+        name="search"
+        id="search_term"
+      /> </div>
+  
+
+
+<div id="navbar-left"> 
+      <button
+        type="submit"
+        class="search-button"
+        value="Search"
+        id="search_button"
+      > Search </button>  </div> 
+
+  </div>      
+<div id="navbar-left"> 
+<p class="font33">{{userName}}</p><br /> </div>
+
+<div id="navbar-left-2"> 
+     <img class="logo-2" src="/public/images/logo-b.jpeg" alt="event nest logo">  </div>
+  
+  </form> 
+
+</div>
+
+
+ <br/>
+ <br/>
+
+
+  {{! <form autocomplete="off" method="POST" action="/userhomepage"> }}
+  <form autocomplete="off" method="POST" class="filter-tab">
+    <h3 class="font33"> Hi {{userName}} !</h3>  
+     <hr class="new1">
+    <br>
+    <h3>Filter By Category</h3> 
+    <br/>
+    <label class="container2">Party
+      <input type="checkbox" id="party" />
+      <span class="checkmark"></span>
+    </label>
+    <label class="container2">Get-Together
+      <input type="checkbox" id="getTogether" />
+      <span class="checkmark"></span>
+    </label>
+    <label class="container2">Conference
+      <input type="checkbox" id="conference" />
+      <span class="checkmark"></span>
+    </label>
+    <label class="container2">workshop
+      <input type="checkbox" id="workshop" />
+      <span class="checkmark"></span>
+    </label>
+    <label class="container2">Expo
+      <input type="checkbox" id="expo" />
+      <span class="checkmark"></span>
+    </label>
+    <label class="container2">Networking session
+      <input type="checkbox" id="networkingSession" />
+      <span class="checkmark"></span>
+    </label> <br>
+
+
+    <button class="container56" id="filterbtn" type="button"> filter </button>
+
+  </form>
+
+  <br />
+  <br />
+
+  <div id="serchevent" hidden>
+  </div>
+  <div id="myallevent">
+    {{#each allevents}}
+      <div class="ggg">
+       
+        <p class="container33">{{this.title}}</p><br />
+        <div class="ticketinfogrid">
+          <p class="container3">
+            <strong>Category:</strong>
+            {{this.category}}
+          </p><br />
+
+          <p class="container3"><strong>Creator Name: </strong>
+            di
+            {{this.creator}}</p><br />
+        </div>
+        <br />
+
+        <div class="ticketinfogrid">
+          <p class="container3"><strong>Start Time:</strong>
+            {{this.timestart}}</p><br />
+          <p class="container3"><strong> Time:</strong> {{this.endtime}}</p><br
+          />
+        </div>
+        <br />
+        <div class="ticketinfogrid">
+          <p class="container3"><strong>Address:</strong>
+            {{this.address}}</p><br />
+          <p class="container3"><strong>City:</strong> {{this.city}}</p><br />
+        </div>
+        <br />
+        <div class="ticketinfogrid">
+          <p class="container3"><strong>State:</strong> {{this.state}}</p><br />
+          <p class="container3"><strong>Description:</strong>
+            {{this.description}}</p></div>
+        <br /> 
+                <div class="ticketinfogrid">
+        <p class="container4"><strong>Ticket Price: </strong>
+          {{this.price}}</p><br />
+        <p class="container4"><strong>Tickets Left: </strong>
+          {{this.ticketcapacity}}</p><br />
+        
+        </div> <br/>
+
+          <a class = "container55" href="/checkout/{{this._id}}" style = "text-decoration: none ; color: white ; background-color:rgb(0, 109, 27)">Buy Ticket</a><br />
+
+        <form action="/comment/{{this._id}}" method="POST" id="commentform">
+
+
+          <label for="comment"></label>
+        <hr class="new1">
+          <input
+            type="text"
+            name="comment"
+            id="comment" 
+            placeholder="add your comment here!"
+            class="inputbox1"  
+           
+            required
+          />
+          <br />
+
+          <button class="container5" type="submit">Add the comment</button>
+        </form> 
+        <div class="center22">
+          {{#if this.comments}}
+            {{#each this.comments}}
+              <p class="container7"><strong>{{this}}</strong></p>
+            {{/each}}
+          {{/if}}
+        </div> 
+         <hr class="new1">
+        <br />
+    
+
+
+
+        <div>
+        
+          <a href="https://twitter.com/" class="fa fa-twitter"> &nbsp; &nbsp;share on Twitter</a>
+
+        </div>
+
+        <br /><br />
+      </div> <br>
+      <br />
+      <br />
+    {{/each}}
+  </div>
+<br>
+
+</main>

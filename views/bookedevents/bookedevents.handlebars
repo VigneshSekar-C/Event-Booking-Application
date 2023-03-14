@@ -1,0 +1,70 @@
+<main>
+    <div id="navbar">   
+
+
+
+
+   <div id="navbar-right">
+ <a href="/logout"> Logout </a> 
+  </div>  
+
+      <div id="navbar-right"> 
+
+   <a href="/bookedevents"> Booked Events </a> </div> &nbsp; 
+
+<div id="navbar-right"> 
+  <a href="/create-event"> Create Event </a> </div> &nbsp; 
+
+ 
+
+<div id="navbar-right"> 
+  <a href="/userhomepage"> Home </a>  </div> &nbsp; 
+
+
+
+
+  
+  </form> 
+
+</div>
+
+
+  <br><br><br> <br><br>
+
+
+  <h1 class="center1">Booked Events </h1>
+
+
+  
+
+
+  {{#each allBookedEvents}}
+  <div class="ggg"> 
+     <br>
+    <p class="container3">{{this.title}}</p><br>
+    <p class="container3"> Category: {{this.category}} </p> <br>
+    <p class="container3">Creator Name: {{this.creator}}</p><br>
+    <p class="container3">Start Time: {{this.timestart}}</p><br>
+    <p class="container3">End Time: {{this.endtime}}</p><br>
+    <p class="container3">Address: {{this.address}}</p><br>
+    <p class="container3">City: {{this.city}}</p><br>
+    <p class="container3">State: {{this.state}}</p><br>
+    <p class="container3">Description: {{this.description}}</p><br>
+    <p class="container4">Ticket Price: {{this.price}}</p><br>
+
+
+
+
+
+
+
+
+
+    <br>
+  </div>
+  <br>
+  <br>
+  {{/each}}
+
+
+</main>

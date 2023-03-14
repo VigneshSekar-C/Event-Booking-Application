@@ -1,0 +1,125 @@
+<main>
+
+  <br /><br />
+  <h1 class="center1">User Signup</h1>
+  <br />
+
+  <form action="/usersignup" method="POST" id="signup-form">
+
+    <div class="signup-div">
+
+      <div class="center1">
+        <br />
+           <label for="email"><b>E-mail</b></label>
+        <br />
+        <input
+          type="email"
+          placeholder="Enter Email"
+          name="email"
+          id="email"
+          style="width: 70%; border-radius: 6px; height: 20%"
+          required
+        />
+
+        <br />
+
+        <label for="password"><b>Password</b></label>
+        <br />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          id="password"
+          style="width: 70%; border-radius: 6px; height: 20%"
+          required
+        />
+        <br />
+        <br />
+
+        <p class="center1">Input password must contain: 
+          <br />
+          at least 6 characters, one uppercase, one number
+       </p>
+
+        <br />
+
+
+      
+
+        <label for="username">username</label>
+        <br />
+        <input
+          type="text"
+          placeholder="Enter username"
+          name="username"
+          id="username"
+          style="width: 70%; border-radius: 6px; height: 10px"
+          required
+        />
+        <br />
+        <br />
+
+        <label for="phonenumber"><b>Phone Number</b></label>
+        <br />
+        <input
+         
+          type="text"
+          id="phonenumber"
+          name="phone" 
+          style="width: 70%; border-radius: 6px; height: 10px"
+          
+          required
+        />
+
+        <br />
+        <label for="gender">Gender</label><br />
+         
+          <select
+            class="ghost-round-signup"
+            name="gender"
+            id="gender"
+            onfocus="this.select()" 
+            class= "center-1"
+          >
+            <option> &nbsp;&nbsp;&nbsp;Select a Value</option>
+            <option value="male">&nbsp;&nbsp;&nbsp;Male</option>
+            <option value="female">&nbsp;&nbsp;&nbsp;Female</option>
+            <option value="other">&nbsp;&nbsp;&nbsp;Other</option>
+          </select>
+        </label>
+        <br />
+
+
+        <label for="address"><b>Address</b></label>
+        <br />
+        <input
+          type="text"
+          placeholder="Enter Address"
+          name="address"
+          id="address"
+          style="width: 70%; border-radius: 6px; height: 30%"
+          required
+        />
+        <br />
+
+        <button type="submit" class="container5" style="width: 44%; border-radius: 6px">Create Account - Sign up</button>
+        <br /> 
+ 
+        <a href="/userlogin" onMouseOver="this.style.color='#ffffff'" style="text-decoration:none; width:44%">Login</a>
+         <br /><br />
+
+      </div>
+
+    </div>
+
+  </form>
+
+  <div id="error" hidden>
+  </div> 
+  {{#if error}} 
+  <br>
+ <p class="error-message"> {{error}}</p> <br>
+  {{/if}}
+
+</main>
+<script src="/public/js/code.js"></script>
