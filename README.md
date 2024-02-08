@@ -1,4 +1,5 @@
-<h1 align="center">Final Project Group </h1>
+<h1 align="center">Final Year Project</h1>
+<h2>Arul Jeshin Ponarasu A Tejesh S Vignesh C</h2>
 
 ## Implemented Core Features
 
