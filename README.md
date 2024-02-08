@@ -1,9 +1,9 @@
 <h1 align="center">Final Year Project</h1>
 <h1>Members</h1>
-<h2>Arul Jeshin 
-    Ponarasu A 
-    Tejesh S 
-    Vignesh C</h2>
+<h2>Arul Jeshin</h2>
+<h2>Ponarasu A</h2>
+<h2>Tejesh S</h2>
+<h2>Vignesh C</h2>
 
 ## Implemented Core Features
 
