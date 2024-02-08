@@ -45,6 +45,7 @@
 
 
   </form>
+  {{#if myEvents}}
 
   {{#each myEvents}}
   <div class="ggg">
@@ -82,6 +83,11 @@
   <br>
   <br>
   {{/each}}
+  {{else}}  
+  <br/> <br/> <br/>
+  <Center><h3>There are no Events created </h3></Center>  
+  <br/>
+  {{/if}}
   <div class="center1">
     &nbsp;&nbsp;&nbsp;&nbsp;
    

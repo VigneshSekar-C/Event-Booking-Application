@@ -29,16 +29,14 @@ const getAllEvents = async () => {
     return eventList;
 };
 const getEvent = async (eventId) => {
-    try {
-        parsedEventid = ObjectId(eventId);
-    } catch (e) {
-        throw "Event id format wrong";
-    }
+    
+        
+     
     if (!eventId) throw "You must provide an id to search for";
     if (typeof eventId != "string" || eventId.trim().length == 0)
         throw "the id provided is not a string or is an empty string";
     const eventCollection = await events();
-    const event = await eventCollection.findOne({ _id: parsedEventid });
+    const event = await eventCollection.findOne({ _id: new ObjectId(eventId) });
 
     return event;
 };
@@ -211,7 +209,7 @@ const updateEvent = async (
     // console.log(active, typeof active)
 
     try {
-        parsedEventid = ObjectId(eventId);
+        parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "id format wrong";
     }
@@ -316,7 +314,7 @@ const updateEvent = async (
    
 
     const eventCollection = await events();
-    const olddata = await eventCollection.findOne({ _id: ObjectId(eventId) });
+    const olddata = await eventCollection.findOne({ _id: new ObjectId(eventId) });
     const updatedEvent = {
         title: title,
         category: category,
@@ -342,7 +340,7 @@ const updateEvent = async (
         active: active,
     };
     await eventCollection.updateOne(
-        { _id: ObjectId(eventId) },
+        { _id: new ObjectId(eventId) },
         { $set: updatedEvent }
     );
     return await getEvent(eventId);
@@ -355,7 +353,7 @@ const removeEvent = async (
 ) => {
 
     try {
-        parsedEventid = ObjectId(eventId);
+        parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "id format wrong";
     }
@@ -367,7 +365,7 @@ const removeEvent = async (
     const eventCollection = await events();
 
     await eventCollection.updateOne(
-        { _id: ObjectId(eventId) },
+        { _id: new ObjectId(eventId) },
         { $set: { active: activeFlag} }
     );
 
@@ -458,14 +456,14 @@ const addLike = async (eventId) => {
     }
 
     try {
-        parsedEventid = ObjectId(eventId);
+         parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "id format wrong";
     }
     const eventCollection = await events();
 
     const findEvent = await eventCollection.findOne({
-        _id: ObjectId(eventId),
+        _id: new ObjectId(eventId),
     });
     // console.log(findEvent);
     // let mynewcomment = findComment["comments"];
@@ -509,14 +507,14 @@ const removeLike = async (eventId) => {
     }
 
     try {
-        parsedEventid = ObjectId(eventId);
+        parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "id format wrong";
     }
     const eventCollection = await events();
 
     const findEvent = await eventCollection.findOne({
-        _id: ObjectId(eventId),
+        _id: new ObjectId(eventId),
     });
     // console.log(findEvent);
     // let mynewcomment = findComment["comments"];
@@ -562,14 +560,14 @@ const addIntersted = async (eventId) => {
     }
 
     try {
-        parsedEventid = ObjectId(eventId);
+        parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "id format wrong";
     }
     const eventCollection = await events();
 
     const findEvent = await eventCollection.findOne({
-        _id: ObjectId(eventId),
+        _id: new ObjectId(eventId),
     });
     // console.log(findEvent);
     // let mynewcomment = findComment["comments"];
@@ -614,7 +612,7 @@ const removeIntersted = async (eventId) => {
     }
 
     try {
-        parsedEventid = ObjectId(eventId);
+        parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "id format wrong";
     }
@@ -667,14 +665,14 @@ const addGoing = async (eventId) => {
     }
 
     try {
-        parsedEventid = ObjectId(eventId);
+         parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "id format wrong";
     }
     const eventCollection = await events();
 
     const findEvent = await eventCollection.findOne({
-        _id: ObjectId(eventId),
+        _id: new ObjectId(eventId),
     });
     // console.log(findEvent);
     // let mynewcomment = findComment["comments"];
@@ -720,14 +718,14 @@ const removeGoing = async (eventId) => {
     }
 
     try {
-        parsedEventid = ObjectId(eventId);
+        parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "id format wrong";
     }
     const eventCollection = await events();
 
     const findEvent = await eventCollection.findOne({
-        _id: ObjectId(eventId),
+        _id: new ObjectId(eventId),
     });
     // console.log(findEvent);
     // let mynewcomment = findComment["comments"];
@@ -768,7 +766,7 @@ const removeGoing = async (eventId) => {
 const checkcapacity = async(eventId)=>{
     let myreturn = false
     try {
-        parsedEventid = ObjectId(eventId);
+        parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "Event id format wrong";
     }
@@ -776,7 +774,7 @@ const checkcapacity = async(eventId)=>{
     if (typeof eventId != "string" || eventId.trim().length == 0)
         throw "the id provided is not a string or is an empty string";
     const eventCollection = await events();
-    const olddata = await eventCollection.findOne({ _id: parsedEventid });
+    const olddata = await eventCollection.findOne({ _id: new ObjectId(eventId) });
     if (olddata['ticketcapacity'] < 1){
         myreturn = false
     }
@@ -793,7 +791,7 @@ const addbuyerinbuyerlist = async (email , eventId)=>{
         throw '$ email is not vaile'
     }
     try {
-        parsedEventid = ObjectId(eventId);
+        parsedEventid = new ObjectId(eventId);
     } catch (e) {
         throw "Event id format wrong";
     }
@@ -837,7 +835,7 @@ const addbuyerinbuyerlist = async (email , eventId)=>{
         active: olddata['active'],
     }
     let addbuyer1 = await eventCollection.updateOne(
-        { _id: ObjectId(eventId) },
+        { _id: new ObjectId(eventId) },
         { $set: mynewup }
     );
     if (addbuyer1.insertedCount === 0) throw '$ Could not buy this';
@@ -847,7 +845,7 @@ const addbuyerinbuyerlist = async (email , eventId)=>{
 
 const getBuyerList = async (eventId, creator, noOftickets) => {
     const eventCollection = await events();
-    const findEvent = await eventCollection.findOne({ _id: ObjectId(eventId) });
+    const findEvent = await eventCollection.findOne({ _id: new ObjectId(eventId) });
     ticketCap = findEvent.ticketcapacity;
     // const likedEvent = await eventCollection.updateOne(
     //     { _id: new ObjectId(eventId) },
@@ -866,7 +864,7 @@ const getBuyerList = async (eventId, creator, noOftickets) => {
             boughtTickets: noOftickets,
         };
         await eventCollection.updateOne(
-            { _id: ObjectId(eventId) },
+            { _id: new ObjectId(eventId) },
             { $push: { buyerList: newBuy } }
         );
 

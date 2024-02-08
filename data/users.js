@@ -151,8 +151,8 @@ async function getAll() {
 }
 
 function myDBfunction(id) {
-    let { ObjectId } = require("mongodb");
-    let parsedId = ObjectId(id);
+    
+    let parsedId = new ObjectId(id);
 
     if (!id) throw "Id parameter must be supplied";
 
@@ -360,7 +360,7 @@ async function addLikeevents(userId, eventsid) {
     const myeventId = myDBfunction(eventsid);
     const usersCollection = await users();
     let newlikeevents = {
-        _id: ObjectId(),
+        _id: new ObjectId(),
         eventsid: myeventId,
     };
 
