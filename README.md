@@ -1,4 +1,4 @@
-<h1 align="center">Final Project Group 9</h1>
+<h1 align="center">Final Project Group </h1>
 
 ## Implemented Core Features
 
